@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_appointment_booking_app/features/customer/home/data/dataSources/local%20data/salon_data.dart';
 import 'package:salon_appointment_booking_app/features/customer/home/presentation/widgets/home_salon_display_container.dart';
 import 'package:salon_appointment_booking_app/features/customer/salons/presentation/pages/salons.dart';
@@ -17,7 +18,11 @@ class NearestSalons extends StatelessWidget {
           children: [
             Text(
               'Nearest Salon',
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: GoogleFonts.italiana(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             Spacer(),
             GestureDetector(
@@ -31,7 +36,11 @@ class NearestSalons extends StatelessWidget {
               },
               child: Text(
                 'View All',
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: GoogleFonts.quicksand(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey[600],
+                ),
               ),
             ),
           ],

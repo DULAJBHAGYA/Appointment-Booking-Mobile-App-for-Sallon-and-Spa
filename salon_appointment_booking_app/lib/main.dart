@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salon_appointment_booking_app/core/theme/theme.dart';
-import 'package:salon_appointment_booking_app/features/customer/home/presentation/pages/home.dart';
-import 'package:salon_appointment_booking_app/features/customer/salons/presentation/pages/salons.dart';
+import 'package:salon_appointment_booking_app/features/shared/auth/presentation/pages/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Appointment Booking App',
       theme: AppTheme.lightThemeMode,
-      home: Salons(),
+      home: const SignInPage(),
     );
   }
 }

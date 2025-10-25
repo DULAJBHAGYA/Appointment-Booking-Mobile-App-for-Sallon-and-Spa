@@ -22,7 +22,7 @@ class _MakeAppointmentState extends State<MakeAppointment> {
             children: [
               Text(
                 'Make An Appointment',
-                style: GoogleFonts.urbanist(
+                style: GoogleFonts.poppins(
                   color: Palette.mainColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -32,7 +32,7 @@ class _MakeAppointmentState extends State<MakeAppointment> {
               const SizedBox(height: 20),
               Text(
                 'Choose Services',
-                style: GoogleFonts.urbanist(
+                style: GoogleFonts.poppins(
                   color: Palette.blackColor,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -137,7 +137,7 @@ class _MakeAppointmentState extends State<MakeAppointment> {
               const SizedBox(height: 20),
               Text(
                 'Choose Date',
-                style: GoogleFonts.urbanist(
+                style: GoogleFonts.poppins(
                   color: Palette.blackColor,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -146,7 +146,7 @@ class _MakeAppointmentState extends State<MakeAppointment> {
               const SizedBox(height: 20),
               Text(
                 'Choose Time',
-                style: GoogleFonts.urbanist(
+                style: GoogleFonts.poppins(
                   color: Palette.blackColor,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,

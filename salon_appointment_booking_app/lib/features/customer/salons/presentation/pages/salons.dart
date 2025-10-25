@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_appointment_booking_app/core/theme/palette.dart';
+import 'package:salon_appointment_booking_app/core/widgets/navDrawer.dart';
 import 'package:salon_appointment_booking_app/core/widgets/search_bar.dart';
 import 'package:salon_appointment_booking_app/features/customer/home/data/dataSources/local%20data/salon_data.dart';
 import 'package:salon_appointment_booking_app/features/customer/salons/presentation/widgets/salon_display_widget.dart';
 
 class Salons extends StatefulWidget {
-  const Salons({super.key});
+  final int? selectedIndex;
+  
+  const Salons({super.key, this.selectedIndex});
 
   @override
   State<Salons> createState() => _SalonsState();
 }
 
 class _SalonsState extends State<Salons> {
+  late int _selectedIndex;
   List<dynamic> _salons = SalonsData.salons;
   List<dynamic> _filteredSalons = SalonsData.salons;
   final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex ?? 1;
+    _searchController.addListener(_filterSalons);
+  }
 
   void _filterSalons() {
     final query = _searchController.text.toLowerCase();
@@ -28,12 +40,6 @@ class _SalonsState extends State<Salons> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    _searchController.addListener(_filterSalons);
-  }
-
-  @override
   void dispose() {
     _searchController.removeListener(_filterSalons);
     _searchController.dispose();
@@ -43,55 +49,75 @@ class _SalonsState extends State<Salons> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Palette.whiteColor,
       appBar: AppBar(
-        backgroundColor: Palette.backgroundColor,
+        backgroundColor: Palette.whiteColor,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Icon(
-            Icons.menu,
-            color: Palette.mainColor,
-            size: 30,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Palette.blackColor,
+              size: 30,
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
           ),
         ),
+        actions: [
+          Container(
+            width: 50,
+            height: 50,
+            margin: const EdgeInsets.only(right: 15),
+            child: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/dp.jpg'),
+              backgroundColor: Palette.whiteColor,
+            ),
+          ),
+        ],
       ),
+      drawer: NavDrawer(selectedIndex: _selectedIndex),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Salons',
-                style: Theme.of(context).textTheme.headlineLarge,
+                style: GoogleFonts.italiana(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Palette.blackColor,
+                ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               CustomSearchBar(
                 controller: _searchController,
-                onChanged: (value) {},
+                onChanged: (value) {
+                  _filterSalons();
+                },
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: _filteredSalons.map((salon) {
-                      return Column(
-                        children: [
-                          SalonDisplayWidget(
-                            image: salon['image'],
-                            name: salon['name'],
-                            rating: salon['rating'],
-                            distance: salon['distance'],
-                            email: salon['email'],
-                            contact: salon['contact'],
-                            address: salon['address'],
-                          ),
-                          const SizedBox(height: 10),
-                        ],
-                      );
-                    }).toList(),
-                  ),
+                child: ListView.builder(
+                  itemCount: _filteredSalons.length,
+                  itemBuilder: (context, index) {
+                    final salon = _filteredSalons[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: SalonDisplayWidget(
+                        image: salon['image'],
+                        name: salon['name'],
+                        rating: (salon['rating'] as num).toDouble(),
+                        distance: (salon['distance'] as num).toDouble(),
+                        email: salon['email'],
+                        contact: salon['contact'],
+                        address: salon['address'],
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

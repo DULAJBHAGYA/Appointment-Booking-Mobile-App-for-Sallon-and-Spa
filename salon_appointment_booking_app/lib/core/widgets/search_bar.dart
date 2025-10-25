@@ -21,15 +21,15 @@ class CustomSearchBar extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.9,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Palette.whiteColor,
+        color: const Color.fromRGBO(236, 220, 207, 0.5),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
         children: [
           Icon(
-            Iconsax.search_normal,
-            size: 20,
-            color: Palette.greyColor,
+            CupertinoIcons.search,
+            size: 24,
+            color: Colors.grey[600]
           ),
           SizedBox(width: 10),
           Expanded(
@@ -37,31 +37,17 @@ class CustomSearchBar extends StatelessWidget {
               controller: controller,
               onChanged: onChanged,
               decoration: InputDecoration(
-                hintText: 'search here',
-                hintStyle: GoogleFonts.urbanist(
+                hintText: 'Search',
+                hintStyle: GoogleFonts.quicksand(
                     fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Palette.greyColor),
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[600]),
                 border: InputBorder.none,
               ),
               style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
                   color: Palette.greyColor),
-            ),
-          ),
-          Spacer(),
-          Container(
-            decoration: BoxDecoration(
-                color: Palette.backgroundColor,
-                borderRadius: BorderRadius.circular(5)),
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Icon(
-                Iconsax.filter_add,
-                size: 20,
-                color: Palette.greyColor,
-              ),
             ),
           ),
         ],

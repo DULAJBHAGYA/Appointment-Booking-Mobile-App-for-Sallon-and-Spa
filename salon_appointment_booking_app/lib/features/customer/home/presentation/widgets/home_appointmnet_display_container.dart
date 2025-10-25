@@ -22,6 +22,13 @@ class HomeAppointmentDisplayContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: Palette.mainColor,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
       ),
       height: 130,
       width: MediaQuery.of(context).size.width - 40,

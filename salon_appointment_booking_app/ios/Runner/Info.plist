@@ -45,5 +45,18 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_dartobservatory._tcp</string>
+	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This app uses the local network to connect to the Flutter debugger.</string>
+	<!-- Google Maps API Key -->
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open to show your location on the map.</string>
+	<key>GMSApiKey</key>
+	<string>AIzaSyCZ4LprOl7uej7hba2bDftjzb-iaxTumOQ</string>
 </dict>
 </plist>

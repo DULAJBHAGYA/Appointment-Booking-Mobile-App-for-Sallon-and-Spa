@@ -18,7 +18,7 @@ class HomeUserInfoContainer extends StatelessWidget {
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(
-            20.0,
+            30.0,
           ),
           child: Column(
             children: [
@@ -26,49 +26,52 @@ class HomeUserInfoContainer extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: Palette.whiteColor,
-                    radius: 50,
+                    radius: 40,
                     backgroundImage: AssetImage(
-                      'images/dp.jpg',
+                      'assets/images/dp.jpg',
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Column(
-                    children: [
-                      Container(
-                        width: 200,
-                        child: Text(
-                          'Hi! Miyuni',
-                          overflow: TextOverflow.clip,
-                          style: GoogleFonts.urbanist(
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hi! Sarah',
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.poppins(
                             color: Palette.blackColor,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w900,
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
                           ),
                           maxLines: 1,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: Palette.mainColor,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            '233, Kandy Rd, Peradeniya',
-                            style: GoogleFonts.urbanist(
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
                               color: Palette.mainColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
+                              size: 16,
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                            const SizedBox(width: 5),
+                            Expanded(
+                              child: Text(
+                                '233, Kandy Rd, Peradeniya',
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(
+                                  color: Palette.mainColor,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

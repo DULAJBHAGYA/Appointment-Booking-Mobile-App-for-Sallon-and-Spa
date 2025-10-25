@@ -21,12 +21,18 @@ class HomeSalonDisplayContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey[100],
+      ),
+
+      margin: const EdgeInsets.only(bottom: 10),
       child: Row(
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Palette.whiteColor,
+              color: Colors.grey[600],
               borderRadius: BorderRadius.circular(20),
             ),
             height: 120,
@@ -47,15 +53,20 @@ class HomeSalonDisplayContainer extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: GoogleFonts.italiana(
+                    color: Palette.blackColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+
                 ),
                 const SizedBox(height: 5),
                 Text(
                   address,
-                  style: GoogleFonts.urbanist(
-                    color: Palette.greyColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
+                  style: GoogleFonts.quicksand(
+                    color: Colors.grey[600],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -64,11 +75,15 @@ class HomeSalonDisplayContainer extends StatelessWidget {
                     Icon(
                       Icons.location_on,
                       color: Palette.blackColor,
-                      size: 20,
+                      size: 12,
                     ),
                     Text(
                       distance.toString() + ' Km',
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: GoogleFonts.quicksand(
+                        color: Palette.blackColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        ),
                     ),
                   ],
                 ),

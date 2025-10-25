@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_appointment_booking_app/core/theme/palette.dart';
 
 class ServicesScrollMenuItem extends StatelessWidget {
@@ -16,14 +17,18 @@ class ServicesScrollMenuItem extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          radius: 40,
+          radius: 50,
           backgroundColor: Palette.mainColor,
           backgroundImage: AssetImage(image),
         ),
         const SizedBox(height: 5),
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: GoogleFonts.quicksand(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.grey[600]
+          ),
         ),
       ],
     );

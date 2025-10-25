@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_appointment_booking_app/features/customer/home/data/dataSources/local%20data/services_data.dart';
 import 'package:salon_appointment_booking_app/features/customer/home/presentation/widgets/services_scroll_menu_item.dart';
 
@@ -13,12 +14,20 @@ class ServicesMenu extends StatelessWidget {
           children: [
             Text(
               'Services',
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: GoogleFonts.italiana(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF111111)
+              ),
             ),
             Spacer(),
             Text(
               'View All',
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: GoogleFonts.quicksand(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[600]
+              ),
             ),
           ],
         ),
